@@ -142,19 +142,44 @@ observa desde el administrador los datos insertados.
 ![Archivos modificados](imagenes/makemigrations_migrate.png)
 
 </tr><tr>
--   Ahora creamos el superusuario:
+-   Modificamos el views.py de la app inicio:
 
-![Superusuario](imagenes/super_usuario.png)
+```python
+    from django.shortcuts import render
+    from django.http import HttpResponse
 
-![Personas](imagenes/Personas.png)
+    # Create your views here.
+    def myHomeView(*args, **kwargs):
+        return HttpResponse('<h1>Hola Mundo desde Django</h1>')
+```
+
+</tr><tr>
+-   Insertamos la ruta el urls.py de listaContactos:
+
+```python
+    from django.contrib import admin
+    from django.urls import path
+    from inicio.views import myHomeView
+
+    urlpatterns = [
+        path('', myHomeView, name = 'Página de inicio'),
+        path('admin/', admin.site.urls),
+    ]
+```
 
 </tr><tr>
 
--   Insertando una persona desde el shell:
+-   Corremos el servidor y observamos las modificaciones:
 
-![Superusuario](imagenes/insertando_datos_desde_shell.png)
+![Hola Mundo desde Django](imagenes_django2/Hola_mundo.png)
 
 </tr><tr>
+
+
+
+
+
+
 
 
 -   Observamos la persona insertada desde el shell:
