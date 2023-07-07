@@ -250,6 +250,18 @@ será urls, dentro de templates creamos "home.html"
 - Finalmente observamos desde el navegador:
 ![Plantillas](imagenes_django2/templates.png) 
 
+- Ahora trabajaremos con variables dentro de nuestro archivo home.html:
+```python
+    <h2>Con Templates</h2>
+        {{ request.user }}
+    <br>
+        {{ request.user.is_authenticated }}
+```
+- Observamos en el navegador:
+![Plantillas](imagenes_django2/variables_home.png)
+
+
+
 
 
 Observamos la persona insertada desde el shell:
