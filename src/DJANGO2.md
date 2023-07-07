@@ -65,9 +65,10 @@
 <tr>
 #I. RÉPLICA DE LA TEORÍA DE DJANGO2:
 A. <br><br>
--   En esta parte contuamos con Django 2 a partir de lo que ya se 
+-   En esta parte continuamos con Django 2 a partir de lo que ya se 
 hizo en Django 1:
-- Empezmos con la modificacion del models.py modificando:
+
+- Empezamos con la modificacion del models.py modificando:
     
 ```python
     class Persona(models.Model):
@@ -76,44 +77,47 @@ hizo en Django 1:
         edad = models.IntegerField()
 ```
 
-![Se lanza por primera vez el servidor](imagenes_django2/makemigrations1.png)
+![makemigrations](imagenes_django2/makemigrations1.png)
 
 </tr>
 <tr>
--   Ahora modificamos las zonas horarias y esto lo hacemos en el settings.py
-    reeplazamos de acuerdo a nuestras configuraciones, quedando de la siguiente
-    manera:
+-   Ahora ejecutamos el comando python manage.py migrate:
+
+![migrate](imagenes_django2/migrate1.png)
+
+
+</tr><tr>
+-   Luego insertamos datos desde el shell:
+
+![Insertando datos desde el shell](imagenes_django2/insertando_shell.png)
+
+</tr><tr>
+-   Aqui podemos observar los cambios hechos desde el shell, en la imagen se 
+observa desde el administrador los datos insertados.
+
+![Se observa que se insertó a Jorge](imagenes_django2/jorge_admin.png)
+</tr><tr>
+
+-   Ahora insertaremos un nuevo campo "donador", esta modificación la realizaremos
+ en el models.py de la app personas, entonces modificaremos el modelo:
 
 ```python
-      LANGUAGE_CODE = 'es'
-      TIME_ZONE = 'America/Lima'
-      USE_I18N = True
-      USE_TZ = True
+    class Persona(models.Model):
+        nombres = models.CharField(max_length = 100)
+        apellidos = models.CharField(max_length = 100)
+        edad = models.IntegerField()
+        donador = models.BooleanField()
 ```
-![Se modifica el lenguaje y la zona](imagenes/settings_es_america.png)
-![Se modifica el lenguaje y la zona](imagenes/cohete_castellano.png)
 
-</tr><tr>
--   Luego creamos la carpeta src, activamos nuestro entorno virtual, estamos listos
-    para hacer migracion con el comando "python manage.py migrate"
-
-![Migrando](imagenes/migrate.png)
-
-</tr><tr>
--   En este paso se observa que al parecer aparece un error, esto es debido a que se 
-    debe realizar el makemigrations, accion que se realizara mas adelante.
-
-![Observaciones](imagenes/observacion_de_migraciones.png)
+![Campo donador visto desde el admin](imagenes_django2/donador.png)
 </tr><tr>
 
--   Luego creamos la aplicacion personas a traves del comando django-admin startapp personas.
+-   Luego de estos cambios ejecutamos el comando python manage.py makemigrations
 
-![app](imagenes/settings_app_personas.png)
+![makemigrations con el campo donador](imagenes_django2/makemigrations2.png)
 </tr><tr>
--   Dentro del models.py de personas creamos la class Persona:
 
-![class_Persona](imagenes/models_TextField.png)
-</tr><tr>
+
 -   Em este punto ejecutamos el comando python manage.py makemigratios.
 
 ![makemigrations](imagenes/makemigrations_migrate.png)
