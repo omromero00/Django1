@@ -203,7 +203,17 @@ creamos la función anotherView:
 - Finalmente observamos los resultados en el navegador:
 ![another/](imagenes_django2/another_2.png)
 
+- Ahora veremos que las funciones de las vistas reciben argumentos,
+pasaremos como argumento request a la función myHomeView:
 
+```python
+    def myHomeView(request, *args, **kwargs):
+        print(args, kwargs)
+        print(request.user)
+        return HttpResponse('<h1>Hola Mundo desde Django</h1>')
+```
+- Observamos en la consola del servidor los print de la función:
+![print en consola](imagenes_django2/consola_servidor.png)
 
 -   Observamos la persona insertada desde el shell:
 
