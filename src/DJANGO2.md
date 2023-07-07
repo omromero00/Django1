@@ -175,8 +175,14 @@ observa desde el administrador los datos insertados.
 
 </tr><tr>
 
-
-
+- Trabajremos un poco mas con peticiones y ruteos URL, 
+en listaContactos modificaremos en el urls.py, aumentaremos 
+el path 'another'
+```python
+     path('another/', myHomeView, name = 'Página de inicio'),
+```
+- Observamos en el navegador 'another':
+![another](imagenes_django2/another.png)
 
 
 
