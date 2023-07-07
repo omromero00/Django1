@@ -118,12 +118,26 @@ observa desde el administrador los datos insertados.
 </tr><tr>
 
 
--   Em este punto ejecutamos el comando python manage.py makemigratios.
+-   Creando la aplicacion inicio "python manage.py startapp inicio".
 
-![makemigrations](imagenes/makemigrations_migrate.png)
+![app inicio](imagenes_django2/inicio_app.png)
 </tr><tr>
--   ¿Que archivos se modificaron al hacer makemigrations y migrate?
-    Se crea el archivo 0001_inital.py
+
+
+-   Agregando en el settings.py del proyecto la app inicio:
+
+```python
+    INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'personas',
+    'inicio',
+]
+```
 
 ![Archivos modificados](imagenes/makemigrations_migrate.png)
 
