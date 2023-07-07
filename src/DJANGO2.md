@@ -175,7 +175,7 @@ observa desde el administrador los datos insertados.
 
 </tr><tr>
 
-- Trabajremos un poco mas con peticiones y ruteos URL, 
+- Trabajaremos un poco mas con peticiones y ruteos URL, 
 en listaContactos modificaremos en el urls.py, aumentaremos 
 el path 'another'
 ```python
@@ -184,7 +184,24 @@ el path 'another'
 - Observamos en el navegador 'another':
 ![another](imagenes_django2/another.png)
 
+- Crearemos una nueva vista en views.py de la app inicio 
+creamos la función anotherView:
+```python
+    def anotherView(request):
+        return HttpResponse('<h1>Sólo otra Página</h1>')
+```
+- En listaContactos direccionamos la ruta en el path:
+```python
+    from inicio.views import anotherView
 
+    urlpatterns = [
+        path('', myHomeView, name = 'Página de inicio'),
+        path('another/', anotherView),
+        path('admin/', admin.site.urls),
+    ]
+```
+- Finalmente observamos los resultados en el navegador:
+![another/](imagenes_django2/another_2.png)
 
 
 
