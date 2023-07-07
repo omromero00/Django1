@@ -215,7 +215,44 @@ pasaremos como argumento request a la función myHomeView:
 - Observamos en la consola del servidor los print de la función:
 ![print en consola](imagenes_django2/consola_servidor.png)
 
--   Observamos la persona insertada desde el shell:
+- Trabajando con plantillas, creamos una carpeta template donde guardaremos nuestros
+HTML, es decir las plantillas seran nuestros Html, la lógica será el views y la ruta
+será urls, dentro de templates creamos "home.html"
+![Estructura del home.html](imagenes_django2/home_html.png)
+
+- Insertamos código en el home:
+
+```python
+    <!DOCTYPE html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Base</title>
+    </head>
+    <body>
+        <h1>Hola Mundo Desde DJango</h1>
+        <h2>Con Templates</h2>
+    </body>
+    </html>
+```
+- Modificamos el setting de listaContacto y el views.py de inicio:
+
+```python
+    import os
+    'DIRS': [os.path.join(BASE_DIR, "templates")],
+```
+```python
+    def myHomeView(request, *args, **kwargs):
+        print(args, kwargs)
+        print(request.user)
+        return render (request, "home.html", {})
+```
+- Finalmente observamos desde el navegador:
+![Plantillas](imagenes_django2/templates.png) 
+
+
+
+Observamos la persona insertada desde el shell:
 
 ![Persona insertada desde el shell](imagenes/Persona_insertada.png)
 
