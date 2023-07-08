@@ -260,30 +260,45 @@ será urls, dentro de templates creamos "home.html"
 - Observamos en el navegador:
 ![Plantillas](imagenes_django2/variables_home.png)
 
+- Usando el tag extends
+```python
+   <body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1>Hola Mundo Desde DJango</h1>
+    <h2>Con Templates</h2>
+    {{ request.user }}
+    <br>
+    {{ request.user.is_authenticated }}
+    {% endblock %}
+</body> 
+```
+- Aqui se muestra el resultado:
+![Extends](imagenes_django2/tag_extends.png)
+
+- Utilizando el tag include:
+```python
+    <body>
+    {% include 'nav.html' %}
+    <h1>Este es un texto de Base</h1>
+    {% block content %}
+        Reemplazame
+    {% endblock %}
+</body>
+```
+- Se observa en el navegador:
+![Include](imagenes_django2/tag_include.png)
+
+## PRESENTAMOS LOS COMMITS:
+![commit](imagenes_django2/commit_django2.png)
+
+## HASTA AQUI CORRESPONDE A DJANGO 2
 
 
 
-
-Observamos la persona insertada desde el shell:
-
-![Persona insertada desde el shell](imagenes/Persona_insertada.png)
 
 </tr><tr>
 
-## La estructura de nuestro laboratorio quedo de la siguiente manera:<br>
-
-![Estructura](imagenes/estructura.png)
-
-</tr><tr>
-
-## Para realizar el presente laboratorio, se han realizado los siguientes commit:<br>
-</td><tr>
-
-![Se modifica el lenguaje y la zona](imagenes/commits.png)
-
-</tr><tr>
-
--  
 
 
 
@@ -296,7 +311,8 @@ Observamos la persona insertada desde el shell:
 </tr>
 <tr><td colspan="6">III. CONCLUSIONES:
 
--   Podemos ver que el framework django ya tiene por defecto el servidos sqlite. 
+-   Podemos concluir que tenemos herramientas para reutilizar código a través de las plantillas.
+-   Podemos manejar variables desde nuestros archivos html. 
 </tr>
 
 </tdbody>
@@ -329,7 +345,7 @@ Observamos la persona insertada desde el shell:
 </tr>
 <tr><td colspan="6">
 <ul>
-<li>https://www.tutorialspoint.com/What-are-pyc-files-in-Python#:~:text=pyc%20files%20are%20created%20by,is%20newer%20than%20the%20corresponding%20.</li>
+<li>Diapositivas brindadas por el profesor de Django 2</li>
 <li>https://stackoverflow.com/questions/8822335/what-do-the-python-file-extensions-pyc-pyd-pyo-stand-for#:~:text=you've%20written.-,.,later%20easier%20(and%20faster).
 </li>
 <li>https://web.archive.org/web/20160130165632/http://www.network-theory.co.uk/docs/pytut/CompiledPythonfiles.html
